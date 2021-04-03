@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
     public float speed;
     public float leftBorder;
     public float rightBorder;
+    public int score;
     void Start()
     {
-        
+        score = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +28,24 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.D) && transform.position.x<rightBorder)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<Ball>() != null)
+        {
+            var myColor = GetComponent<ColorControl>().color;
+            var ballColor = other.GetComponent<ColorControl>().color;
+            if(myColor == ballColor)
+            {
+                score += other.GetComponent<Ball>().scoreAmount;
+            }
+            else
+            {
+                score -= other.GetComponent<Ball>().scoreAmount;
+            }
+            Destroy(other.gameObject);
         }
     }
 }

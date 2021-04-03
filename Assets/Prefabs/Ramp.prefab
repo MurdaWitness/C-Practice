@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -117,8 +118,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5031070710572621439}
   - component: {fileID: 5031070710572621438}
-  - component: {fileID: 5031070710572621408}
   - component: {fileID: 1061691924922465736}
+  - component: {fileID: 7363521822905198118}
   m_Layer: 0
   m_Name: Ramp
   m_TagString: Untagged
@@ -153,7 +154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6917464a82e1f49a7abc1f7fcfbedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &5031070710572621408
+--- !u!114 &1061691924922465736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031070710572621437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b581b81ceaec184fa5f792b89f6f933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+--- !u!54 &7363521822905198118
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,16 +183,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1061691924922465736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031070710572621437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b581b81ceaec184fa5f792b89f6f933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 12
