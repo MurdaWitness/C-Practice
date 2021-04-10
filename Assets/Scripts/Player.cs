@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Text scoreTxt;
     public float speed;
     public float leftBorder;
     public float rightBorder;
@@ -13,7 +15,6 @@ public class Player : MonoBehaviour
         score = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -25,16 +26,20 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.D) && transform.position.x<rightBorder)
+        if (Input.GetKey(KeyCode.D) && transform.position.x<rightBorder)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
     }
-
+    void UpdateUI()
+    {
+        scoreTxt.text = "Score: " + score;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Ball>() != null)
         {
+            
             var myColor = GetComponent<ColorControl>().color;
             var ballColor = other.GetComponent<ColorControl>().color;
             if(myColor == ballColor)
@@ -45,6 +50,7 @@ public class Player : MonoBehaviour
             {
                 score -= other.GetComponent<Ball>().scoreAmount;
             }
+            UpdateUI();
             Destroy(other.gameObject);
         }
     }

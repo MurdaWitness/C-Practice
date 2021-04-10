@@ -6,10 +6,17 @@ public class Destroyer : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (!other.CompareTag("Ground"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("EXTERMINATE");
+        }
     }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(collision.gameObject);
+        Debug.Log("EXTERMINATE");
     }
+    */
 }
